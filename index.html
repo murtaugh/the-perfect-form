@@ -1,0 +1,283 @@
+<!doctype html>
+
+<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!-- the "no-js" class is for Modernizr. --> 
+
+<head data-template-set="html5-reset">
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>The Perfect Form (a work in progress)</title>
+	
+	<!-- concatenate and minify for production -->
+	<link rel="stylesheet" href="_/css/reset.css" />
+	<link rel="stylesheet" href="_/css/style.css" />
+	
+	<!-- This is an un-minified, complete version of Modernizr. 
+		 Before you move to production, you should generate a custom build that only has the detects you need. -->
+	<script src="_/js/modernizr-2.6.2.dev.js"></script>
+
+</head>
+
+<body>
+	
+	<header>
+	
+		<h1>The Perfect Form (a work in progress)</h1>
+	
+		<p>An attempt at a comprehensive look at form UX.</p>
+		
+	</header>
+	
+	<form id="perfect-form-demo" novalidate>
+			
+		<h2>The Rudiments</h2>
+		
+		<p>A successful and intuitive form field must first look sufficiently <em>like</em> a form field, that is to say, it must look like something designed to accept inputs from a user.</p>
+		
+		<label>
+			Basic Text Field
+			<input type="text" placeholder="Enter your text here">
+		</label>
+		
+		<label>
+			Basic Textarea
+			<textarea placeholder="Enter your text here"></textarea>
+		</label>
+		
+		<fieldset class="check-radio">
+		
+			<legend>Basic Checkboxes</legend>
+		
+			<label><input type="checkbox"> Checkbox 1</label>
+			<label><input type="checkbox"> Checkbox 2</label>
+			<label><input type="checkbox"> Checkbox 3</label>
+		
+		</fieldset>
+		
+		<fieldset class="check-radio">
+		
+			<legend>Basic Radio Buttons</legend>
+		
+			<label><input type="radio" name="basic-radio"> Radio 1</label>
+			<label><input type="radio" name="basic-radio"> Radio 2</label>
+			<label><input type="radio" name="basic-radio"> Radio 3</label>
+		
+		</fieldset>
+		
+		<label>
+			Basic Select Field
+			<select>
+				<option>Select Item 1
+				<option>Select Item 2
+				<option>Select Item 3
+				<option>Select Item 4
+			</select>
+		</label>
+		
+		<p>
+			<button>Submit</button>
+		</p>
+		
+		<!--p>Traditionally this has been achieved by using 3d-like design elements to suggest depth, implying that "here is a place for you to enter something."</p>
+		
+		<p>As familiarity with web forms and web design has increased, we have felt free to be less rigid with form designs, and, indeed, you can see I'm enjoying some flat design on this demo page.</p-->
+		
+		<h2>Visual styling</h2>
+		
+		<p>At a minimum, in my opinion, text-based fields should possess an easily-identifiable border. The border implies that this field has an "inside," which is a cue users need to be able to understand that the field is something they can interact with.</p>
+		
+		<p>While not every design requires it, I also prefer to ensure that the text inside the element is clearly differentiated from the normal page text. In this case I've set the font inside the fields to be Courier, a font that has strong connotations with editing and interaction.</p>
+		
+		<h2>The <code>:focus</code> state</h2>
+		
+		<p>Form elements also need to respond visually to user interaction, in order to indicate a readiness to accept inputs. In CSS terms, this is the <code>:focus</code> state.</p>
+		
+		<label>
+			Basic Textarea
+			<textarea placeholder="Click to enter the :focus state"></textarea>
+		</label>
+		
+		<p>The most basic response is the appearance of a blinking cursor, which is already built into every browser. I prefer to change a few other aspects as well, such as the border and placeholder text colors.</p>
+		
+		<p>Browsers also include a default outline of some kind (e.g some browsers apply a blue shadow around a focused element, others a dotted line) that can be overridden via the CSS <code>outline</code> property. If you choose to override it, don't forget to replace it.</p>
+		
+		<h2>Labels</h2>
+		
+		<p>Every field must have a label — ideally inside a literal <code>label</code> tag. The label tag adds both information (in the form of text) and additional usability (in the form of a larger clickable area).</p>
+		
+		<p>Don't confuse labels with placeholders.</p>
+		
+		<h2>Placeholders</h2>
+
+		<p>There are a few guidelines for good placeholder design. First, the color of the placeholder text should be such that it looks inactive — it shouldn't look like text has already been entered into the field (and ideally the look of the text changes as part of the <code>:focus</code> state).</p>
+		
+		<p>Second, the content of the placeholder text should neither act as a label, nor should it be a representation of what you want the user to input. Both cases can cause confusion, the former when an accessibility tool goes looking for a proper label, and the latter when a user reads the sample text and thinks the field has already been filled in.</p>
+		
+		<label>
+			Bad Placeholder Text
+			<input type="email" placeholder="johnsmith@gmail.com">
+		</label>
+		
+		<label>
+			Good Placeholder Text
+			<input type="email" placeholder="Example: you@email.com">
+		</label>
+		
+		<p>Another reason not to use placeholders as labels: IE (at least IE10) <em>hides</em> the placeholder text when in the <code>:focus</code> state. Without a proper label, a distracted user may come back and find they have no idea what they're supposed to enter.</p>
+	
+		<hr>
+		
+		<h2>Validation Behavior</h2>
+		
+		<p>Because the native form validation experience varies so wildly from browser to browser, I prefer to set <code>novalidate</code> on our forms and use JavaScript to assist user input. (Any back end worth its salt will do its own validation as well).</p>
+		
+		<label>
+			Non-required, validates for an email address on blur
+			<input type="email" data-validate="onblur" data-type="email" placeholder="Example: you@email.com">
+			<span class="note">My preferred method of feedback, it waits for the user to indicate completion before providing any visual indicators.</span>
+		</label>
+		
+		<label>
+			Required, validates for an email address on every change
+			<input type="email" data-validate="live" required data-type="email" placeholder="Example: you@email.com">
+		</label>
+	
+		<hr>
+		
+		<h2>Textareas</h2>
+		
+		<p>No one likes working in a tiny little box, so let's set up our textareas to automatically expand as users type. I've also set one up that has a maximum hight so the field doesn't go nuts if someone is pasting in a large amount of text.</p>
+		
+		<p>And, while we're at it, let's just remember that textareas can usually be resized anyway (but doing it automatically is cooler).</p>
+			
+		<label>
+			Auto-resizing text field
+			<textarea data-autoresize placeholder="This field will auto-resize as you type"></textarea>
+		</label>
+		
+		<label>
+			Auto-resizing text field with max-height
+			<textarea data-autoresize style="max-height: 200px;" placeholder="This field will auto-resize as you type, but it will only go so far"></textarea>
+			<span class="note">Scrollbar behaviors on Firefox and IE need attention.</span>
+		</label>
+		
+		<label>
+			A non-auto-resizing text field (allows for user resizing)
+			<textarea placeholder="This field will not auto-resize"></textarea>
+		</label>
+	
+		<hr>
+	
+		<h2>Ziptastic-Based Address Auto-Population</h2>
+		
+		<p>The way to a user's heart? Let them do less work. Based solely on a user's ZIP code, we can accurately determine their city, state, and country. Why are we making people fill this information out manually when there are free APIs like <a href="http://daspecster.github.io/ziptastic/index.html">Ziptastic</a> to do it for us?</p>
+		
+		<fieldset class="address">
+			
+			<label>
+				ZIP Code
+				<input id="zip" type="text" class="short">
+			</label>
+			
+			<label>
+				City
+				<input id="city" type="text">
+			</label>
+			
+			<label>
+				State
+				<input id="state" type="text">
+			</label>
+			
+			<label>
+				Country
+				<input id="country" type="text">
+			</label>
+			
+		</fieldset>
+	
+		<hr>
+		
+		<h2>Custom Checkboxes & Radio Buttons</h2>
+		
+		<p>There are quite a few options for re-skinning form elements, but most of them depend on JavaScript. Let's see what I can do toward matching my minimalist styling with a CSS-only solution.</p>
+		
+		<fieldset class="check-radio customized">
+			
+			<input type="checkbox" id="checkbox1" checked>
+			<label for="checkbox1">Custom Checkbox 1</label>
+			
+			<input type="checkbox" id="checkbox2">
+			<label for="checkbox2">Custom Checkbox 2</label>
+			
+			<input type="checkbox" id="checkbox3">
+			<label for="checkbox3">Custom Checkbox 3</label>
+			
+		</fieldset>
+		
+		<fieldset class="check-radio customized">
+			
+			<input type="radio" id="radio1" name="custom-radio" checked>
+			<label for="radio1">Custom Radio Button 1</label>
+			
+			<input type="radio" name="custom-radio" id="radio2">
+			<label for="radio2">Custom Radio Button 2</label>
+			
+			<input type="radio" name="custom-radio" id="radio3">
+			<label for="radio3">Custom Radio Button 3</label>
+			
+		</fieldset>
+		
+		<p>This works because of the way browsers activate fields when the related <code>label</code> is clicked. So, first hide the <code>input</code> from view, then add a <code>:before</code> element to the label which becomes the new visual component of our custom field:</p>
+		
+		<pre><code>.customized input[type="checkbox"] + label:before</code></pre>
+		
+		<p>Next, use sibling selectors to provide the styles for the <code>checked</code> state of the fields:</p>
+		
+		<pre><code>.customized input[type="checkbox"]:checked + label:before</code></pre>
+		
+		<p>Finally, I like to provide some feedback by darkening the border when the input is in its <code>active</code> state:</p>
+		
+		<pre><code>.customized input[type="checkbox"]:active + label:before</code></pre>
+		
+		<h2>Custom Select Fields</h2>
+		
+		<p>Selects are trickier, but I've made some progress customizing them without resorting to extra markup. The easiest approach is customize the initial appearance, and then let the native behavior take over once the user clicks on it.</p>
+		
+		<fieldset>
+			
+			<label class="select-field customized">
+				Customized Select Field
+				<select>
+					<option>Select Item 1
+					<option>Select Item 2
+					<option>Select Item 3
+					<option>Select Item 4 With Long Option Text
+				</select>
+			</label>
+			
+			<span class="note">The <code>-moz-appearance</code> and <code>appearance</code> properties don't work in Firefox or IE10 on selects yet, so I've had to do some JS sniffing to apply some styles and behaviors [sadface].</span>
+			
+			<p>The tricky part is the triangle. The dropdown needs a visual handle of some sort, but I don't want to resort to extra markup (e.g. an extra div around the select tag) or an image (many solutions for this add a background image to the select to serve as the handle). My solution is to generate the handle as an :after pseudo-element of the label holding the select. I then absolutely position it to visually sit inside the select, and give it a z-index of -1 so it doesn't get in the way of any clicks.</p>
+			
+			<p>Absolutely positioning the triangle is also tricky because how can I know how wide the select is? Select boxes can vary in width based on the text inside them. I could pick a fixed width, but that just feels wrong, but luckily there's a way around the problem: Make the label inline-block, meaning it will take on the width of what's inside it. The fact that the select itself is set to block means that everything below it will naturally break as expected.</p>
+			
+			<p>I went to some pains to make sure this is 100% CSS-based (or as close as the browsers would let me) and doesn't use <em>any</em> extra markup, but it's a bit limited and fragile; it might not work as-is all the time, but I bet with some fiddling it would work in most scenarios. If you really want a <em>fully</em> customized select, you're going to need to use JavaScript. (Ideally you would use that JavaScript to replace an already-existing select box, otherwise if at any point your JS isn't available your users are out of luck.)</p>
+			
+		</fieldset>
+		
+	</form>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write("<script src='_/js/jquery-1.9.1.min.js'>\x3C/script>")</script>
+<script src="_/js/functions.js"></script>
+  
+</body>
+</html>
