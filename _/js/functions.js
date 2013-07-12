@@ -95,6 +95,10 @@ function inputValidation(which, requiredState, valType, value) {
 		
 		which.parent().removeClass("valid").addClass("invalid");
 		
+	} else if (value == "") {
+		
+		which.parent().removeClass("invalid");
+		
 	} else {
 	
 		if (valType == "email") {
@@ -181,7 +185,7 @@ function autoResize(which) {
 	$.ziptastic = function(zip, callback){
 		// Only make unique requests
 		if(!requests[zip]) {
-			requests[zip] = $.getJSON('http://zip.elevenbasetwo.com/v2/US/' + zip);
+			requests[zip] = $.getJSON('http://zip.elevenbasetwo.com/v2/' + zip);
 		}
 
 		// Bind to the finished request
