@@ -158,7 +158,7 @@
 		
 		<h2>Textareas</h2>
 		
-		<p>No one likes working in a tiny little box, so I'll set up the textareas to automatically expand as users type. I've also set one up that has a maximum hight so the field doesn't go nuts if someone is pasting in a large amount of text.</p>
+		<p>No one likes working in a tiny little box, so I've set up textareas that automatically expand as users type. I've also set one up that has a maximum hight so the field doesn't go nuts if someone is pasting in a large amount of text.</p>
 		
 		<p>And, while we're at it, let's just remember that textareas can usually be resized anyway (but doing it automatically is cooler).</p>
 		
@@ -223,7 +223,7 @@
 		
 		<p>A thought on "valid!" signals: ask yourself if they're necessary for your form. For simple forms, they sometimes feel patronizing ("Nice job entering your first name, we kind of thought you were going to screw that up!").</p>
 		
-		<p>And don't over-validate — some people really do have names that are only one character, and maybe that US-based user has a UK-based cell phone number. Don't assume you know what's "right" in all cases.</p>
+		<p>And don't over-validate — some people really do have names that are only one character, and maybe that US-based user has a UK-based cell phone number. Don't assume you know what's right.</p>
 	
 		<hr>
 	
@@ -353,15 +353,15 @@
 			
 		</fieldset>
 		
-		<p>Multi-selects aren't just unsatisfying to style, they're unsatisfying to use as well. Once you know how to select multiple items by holding <kbd>control</kbd> or <kbd>command</kbd> while clicking, you realize it's very easy to undo all your selections by neglecting to hold down that key while you click.</p>
+		<p>Multi-selects aren't just unsatisfying to style, they're unsatisfying to use as well. Once you know how to select multiple items by holding <kbd>control</kbd> or <kbd>command</kbd> while clicking, you quickly come to realize it's very easy to mistakenly undo all your selections by clicking while <em>not</em> holding down that key.</p>
 		
 		<p>Why do we put up with this monstrosity? We don't have to.</p>
 		
 		<h3>The Scrolling Box of Checkboxes</h3>
 		
-		<p>In most cases, I'd wager, checkboxes would make a perfectly satisfying alternative to a multi-select. But the multi-select has its purpose: it enables us to display long lists of options in confined spaces.</p>
+		<p>In most cases, I'd wager, checkboxes would make a perfectly satisfying alternative to a multi-select. But the multi-select has a purpose: it enables us to display long lists of options in confined spaces.</p>
 		
-		<p>Even so, instead of putting up with the usability nightmare that is the multi-select, I like to use something non-standard, but definitely better.</p>
+		<p>Even so, instead of putting up with the usability quagmire that is the multi-select, I like to use something non-standard, but definitely better.</p>
 		
 		<fieldset class="check-radio customized">
 			
@@ -401,6 +401,8 @@
 				<span class="note">I haven't figured out why the box isn't expanding to fit the length of the items inside...</span>
 			
 		</fieldset>
+		
+		<p>If we had full control over the internal styling and behavior of a select box we wouldn't need to resort to this, but here we are.</p>
 		
 		<p>This is nothing more than a scrolling div with a series of customized checkboxes in it (an alternate customization to fit in the smaller space). As long as you give all the checkboxes the same name, the values of the selected checkboxes will be submitted as an array, just as the selected values of a native multi-select would.</p>
 		
