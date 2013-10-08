@@ -52,27 +52,7 @@
 				<textarea placeholder="Enter your text here"></textarea>
 			</label>
 			
-			<!--fieldset class="check-radio">
-			
-				<legend>Basic Checkboxes</legend>
-			
-				<label><input type="checkbox"> Checkbox 1</label>
-				<label><input type="checkbox"> Checkbox 2</label>
-				<label><input type="checkbox"> Checkbox 3</label>
-			
-			</fieldset>
-			
-			<fieldset class="check-radio">
-			
-				<legend>Basic Radio Buttons</legend>
-			
-				<label><input type="radio" name="basic-radio"> Radio 1</label>
-				<label><input type="radio" name="basic-radio"> Radio 2</label>
-				<label><input type="radio" name="basic-radio"> Radio 3</label>
-			
-			</fieldset>
-			
-			<label>
+			<!--label>
 				Basic Select Field
 				<select>
 					<option>Select Item 1
@@ -100,7 +80,7 @@
 		
 		<h2>The <code>:focus</code> state</h2>
 		
-		<p>Form elements need to respond visually to user interaction, in order to indicate a readiness to accept inputs. In CSS terms, this is the <code>:focus</code> state.</p>
+		<p>Form elements should respond visually to user interaction, in order to indicate a readiness to accept inputs. In CSS terms, this is the <code>:focus</code> state.</p>
 		
 		<fieldset>
 		
@@ -190,7 +170,7 @@
 		
 		<h3>"Live" Validation (I don't really like it.)</h3>
 		
-		<p>It's become popular to validate fields as users enter information. I don't care for it, because I don't like telling users they've done something wrong before they've had a chance to do it right; clicking on a field and immediately getting an "invalid!" signal doesn't feel good.</p>
+		<p>It has become popular to validate fields while users enter information. I don't care for it, because I don't like telling users they've done something wrong before they've had a chance to do it right; clicking on a field and immediately getting an "invalid!" signal doesn't feel good.</p>
 		
 		<fieldset>
 		
@@ -265,7 +245,33 @@
 		
 		<p>There are quite a few options for re-skinning form elements, but most of them depend on JavaScript. (One of the more popular solutions is the <a href="http://harvesthq.github.io/chosen/">Chosen</a> jQuery plugin.) Let's see what I can do toward matching my minimalist styling with CSS-only solutions.</p>
 		
+		<p>One thought worth considering: Even though we <em>can</em> customize the look of form fields, we should be careful. The way fields appear in the browser without customization is the appearance that browser's user is probably accustomed to. We don't want to alter the look of the fields so much that they aren't recognizable at a glance.</p> 
+		
 		<h3>Checkboxes & Radio Buttons</h3>
+		
+		<h4>As Rendered By the Browser</h4>
+		
+		<fieldset class="check-radio">
+			
+			<legend>Basic Checkboxes</legend>
+		
+			<label><input type="checkbox"> Checkbox 1</label>
+			<label><input type="checkbox"> Checkbox 2</label>
+			<label><input type="checkbox"> Checkbox 3</label>
+		
+		</fieldset>
+		
+		<fieldset class="check-radio">
+		
+			<legend>Basic Radio Buttons</legend>
+		
+			<label><input type="radio" name="basic-radio"> Radio 1</label>
+			<label><input type="radio" name="basic-radio"> Radio 2</label>
+			<label><input type="radio" name="basic-radio"> Radio 3</label>
+		
+		</fieldset>
+		
+		<h4>Customized (CSS-only)</h4>
 		
 		<fieldset class="check-radio customized">
 			
