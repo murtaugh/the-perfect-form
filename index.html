@@ -15,12 +15,12 @@
 	<title>The Perfect Form (a work in progress)</title>
 	
 	<!-- concatenate and minify for production -->
-	<link rel="stylesheet" href="_/css/reset.css" />
-	<link rel="stylesheet" href="_/css/style.css" />
+	<link rel="stylesheet" href="assets/css/reset.css" />
+	<link rel="stylesheet" href="assets/css/style.css" />
 	
 	<!-- This is an un-minified, complete version of Modernizr. 
 		 Before you move to production, you should generate a custom build that only has the detects you need. -->
-	<script src="_/js/modernizr-2.6.2.dev.js"></script>
+	<script src="assets/js/modernizr-2.6.2.dev.js"></script>
 
 </head>
 
@@ -28,15 +28,20 @@
 	
 	<header>
 	
-		<h1>The Perfect Form (a work in progress)</h1>
-	
-		<p>An attempt at a comprehensive look at form UX.</p>
+		<h1>
+			The Perfect Form (a work in progress)
+			<small>An attempt at a comprehensive look at form UX.</small>
+		</h1>
+		
+		<p>Forms allow web sites to accept inputs from an end user. This can be as simple as a login form, to as complicated a form as you can imagine. Text, numbers, states, countries, credit card numbers, passwords, images, essays, numerical data — anything can be entered into a form.</p>
+		
+		<p>As it exists, HTML is perfectly capable of handling any inputs we could ever want to throw at it, but if we enhance our forms with CSS and JavaScript, we can create form that's not just easier to use, but maybe even also a pleasure.</p>
 		
 	</header>
 	
 	<form id="perfect-form-demo" novalidate>
 			
-		<h2>The Rudiments</h2>
+		<h2 id="the-very-beginning">The Very Beginning</h2>
 		
 		<p>A successful and intuitive form field must first look sufficiently <em>like</em> a form field, that is to say, it must look like something ready to accept inputs from a user.</p>
 		
@@ -52,25 +57,11 @@
 				<textarea placeholder="Enter your text here"></textarea>
 			</label>
 			
-			<!--label>
-				Basic Select Field
-				<select>
-					<option>Select Item 1
-					<option>Select Item 2
-					<option>Select Item 3
-					<option>Select Item 4
-				</select>
-			</label-->
-			
 			<p class="align-right">
 				<button>Submit</button>
 			</p>
 		
 		</fieldset>
-		
-		<!--p>Traditionally this has been achieved by using 3d-like design elements to suggest depth, implying that "here is a place for you to enter something."</p>
-		
-		<p>As familiarity with web forms and web design has increased, we have felt free to be less rigid with form designs, and, indeed, you can see I'm enjoying some flat design on this demo page.</p-->
 		
 		<h2>Visual styling</h2>
 		
@@ -417,7 +408,7 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write("<script src='_/js/jquery-1.9.1.min.js'>\x3C/script>")</script>
-<script src="_/js/functions.js"></script>
+<script src="assets/js/functions.js"></script>
   
 </body>
 </html>
