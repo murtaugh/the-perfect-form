@@ -33,9 +33,15 @@
 			<small>An attempt at a comprehensive look at form UX.</small>
 		</h1>
 		
-		<p>Forms allow web sites to accept inputs from an end user. This can be as simple as a login form, to as complicated a form as you can imagine. Text, numbers, states, countries, credit card numbers, passwords, images, essays, numerical data — anything can be entered into a form.</p>
+		<p>Forms allow web sites to accept inputs from an end user. They can be as simple as a login form, or as complicated as you can imagine. Text, numbers, states, countries, credit card numbers, passwords, images, essays, numerical data — anything can be entered into a form.</p>
 		
 		<p>As it exists, HTML is perfectly capable of handling any inputs we could ever want to throw at it, but if we enhance our forms with CSS and JavaScript, we can create form that's not just easier to use, but maybe even also a pleasure.</p>
+		
+		<p>As designers and developers, we'd like our forms to appear the same across all browsers (at least, as much the same as we can get them), and we usually want them to take on the flavors of the larger design system of the whole site.</p>
+		
+		<p>We're also not above wishing our forms <em>behaved</em> the same across all browsers, and even perhaps <em>improve</em> the native behavior of forms, and we want to do all this <strong>without compromising the integrity of the form</strong>. This is the basic tenet of progressive enhancement: First build something that works; then enhance it.</p>
+		
+		<p>So, let's see how far we can get toward those goals.</p>
 		
 	</header>
 	
@@ -43,18 +49,31 @@
 			
 		<h2 id="the-very-beginning">The Very Beginning</h2>
 		
-		<p>A successful and intuitive form field must first look sufficiently <em>like</em> a form field, that is to say, it must look like something ready to accept inputs from a user.</p>
+		<p>Every browser has its own default styles for forms, sometimes provided by the browser itself, or sometimes pulled in from the parent OS. {is this true?}</p>
+		
+		<figure>
+			[image goes here]
+			<figcaption>screenshots of a simple form in different browsers</figcaption>
+		</figure>
+		
+		<h2>Visual styling</h2>
+		
+		<p>Successful and intuitive form fields must first <em>look</em> sufficiently like form fields, that is to say, they must look like something ready to accept inputs from a user.<sup>1</sup></p>
+		
+		<p>At a minimum, in my opinion, text-based fields should possess an easily-identifiable border. The border implies that this element has an "inside," which is a cue users need in order to understand that the field is something they can interact with.</p>
+		
+		<h3>A form with simple styles</h3>
 		
 		<fieldset>
 		
 			<label>
 				Basic Text Field
-				<input type="text" placeholder="Enter your text here">
+				<input type="text">
 			</label>
 			
 			<label>
 				Basic Textarea
-				<textarea placeholder="Enter your text here"></textarea>
+				<textarea></textarea>
 			</label>
 			
 			<p class="align-right">
@@ -62,10 +81,6 @@
 			</p>
 		
 		</fieldset>
-		
-		<h2>Visual styling</h2>
-		
-		<p>At a minimum, in my opinion, text-based fields should possess an easily-identifiable border. The border implies that this element has an "inside," which is a cue users need in order to understand that the field is something they can interact with.</p>
 		
 		<p>While not every design requires it, I also prefer to ensure that the text inside any editable element is clearly differentiated from normal page text. In this case I've set the font inside the fields to a monospace font, a style that has strong connotations with editing and interaction.</p>
 		
@@ -404,6 +419,14 @@
 		<p>This is nothing more than a scrolling div with a series of customized checkboxes in it (an alternate customization to fit in the smaller space). As long as you give all the checkboxes the same name, the values of the selected checkboxes will be submitted as an array, just as the selected values of a native multi-select would.</p>
 		
 	</form>
+	
+	<footer>
+	
+		<ol class="footnotes">
+			<li>Non-visual users {is this the right term}
+		</ol>
+	
+	</footer>
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
